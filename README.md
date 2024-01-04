@@ -29,5 +29,6 @@ Getting Started
 ## To run this project locally, follow these steps:
 
 Clone this repository to your local machine.
-[Provide any additional setup instructions, such as database configuration or environment variables]
-Build and run the project using [specific commands or instructions].
+create a database called "databasedialdem" with users table
+each user has an email a firstname a last name a blood(bloodtype) a cin and a password
+Build and run the project (open in localhost:8080)
