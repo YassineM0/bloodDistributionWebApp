@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #fff;
+      }
+
+      .header {
+        width: 100%;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        text-align: right;
+        border-bottom: 3px solid #e0e0e0;
+      }
+
+      .home-link {
+        text-decoration: none;
+        font-size: larger;
+        color: #ff0000;
+        font-weight: bold;
+      }
+
+      .main-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        margin-top: 50px;
+      }
+
+      .login-container {
+        flex-basis: 50%;
+        width: 350px;
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        background: #fafafa;
+      }
+
+      .login-container h1 {
+        color: #d00;
+        margin-bottom: 10px;
+      }
+
+      .login-container p {
+        margin-bottom: 20px;
+      }
+
+      .register-link {
+        color: #d00;
+        text-decoration: none;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        background-color: #d00;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background-color: #b30000;
+      }
+
+      .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        background: #fff;
+        border-top: 3px solid #e0e0e0;
+      }
+
+      .heart-image {
+        flex-basis: 50%;
+        height: 200px;
+        background: url("./img/demm.jpg") no-repeat center center;
+        background-size: contain;
+      }
+
+      @media (max-width: 768px) {
+        .main-content {
+          flex-direction: column;
+        }
+
+        .login-container,
+        .heart-image {
+          flex-basis: 100%;
+        }
+
+        .heart-image {
+          order: -1;
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <a href="#" class="home-link">Home</a>
+    </div>
+
+    <div class="main-content">
+      <div class="login-container">
+        <h1>Connectez vous à votre compte</h1>
+        <p>
+          Vous n’avez pas de compte?
+          <a th:href="@{/register}" class="register-link">Inscrivez vous</a>
+        </p>
+
+        <form
+          class="login-form"
+          method="post"
+          role="form"
+          th:action="@{/login}"
+        >
+          <div class="input-group">
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="username"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Mot de passe"
+              required
+            />
+          </div>
+          <button type="submit">Se connecter</button>
+        </form>
+      </div>
+
+      <div class="heart-image"></div>
+    </div>
+
+    <div class="footer"></div>
+  </body>
+</html>

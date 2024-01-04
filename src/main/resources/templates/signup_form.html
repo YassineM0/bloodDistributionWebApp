@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles2.css')}}"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #fff;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 5px 0px 0px 5px;
+        box-sizing: border-box;
+        text-align: right;
+        border-bottom: 3px solid #e0e0e0;
+      }
+
+      .logo-link {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      .logo {
+        height: 75px;
+        width: auto;
+      }
+
+      .home-link {
+        text-decoration: none;
+        position: center;
+        font-size: larger;
+        color: #ff0000;
+        font-weight: bold;
+      }
+
+      .main-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .login-container,
+      .registration-container {
+        flex-basis: 50%;
+        width: 350px;
+        margin: auto;
+        position: absolute;
+        top: 53%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        background: #fafafa;
+      }
+
+      .login-container h1,
+      .registration-container h1 {
+        color: #d00;
+        margin-bottom: 10px;
+      }
+
+      .login-container p,
+      .registration-container p {
+        margin-bottom: 20px;
+      }
+
+      .register-link {
+        color: #d00;
+        text-decoration: none;
+      }
+
+      .input-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+
+      .input-group select,
+      .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 5px;
+      }
+
+      .input-group select {
+        background-color: white;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        background-color: #d00;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background-color: #b30000;
+      }
+
+      .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        background: #fff;
+        border-top: 3px solid #e0e0e0;
+      }
+
+      .heart-image {
+        flex-basis: 100%;
+        height: 165px;
+        width: 50%;
+        background: url("./img/demm.jpg") no-repeat center center;
+        background-size: contain;
+      }
+
+      /* Existing styles */
+
+      /* ... */
+
+      /* Additions for registration container, similar to login-container */
+      .registration-container {
+        top: 56%;
+      }
+
+      /* The button can share the same style, but you can add additional styling if needed */
+      .registration-form button:hover {
+        background-color: #b30000;
+      }
+
+      /* Style for the link to switch to the login page */
+      .login-link {
+        color: #d00;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 15px;
+      }
+
+      /* Ensure footer stays at the bottom */
+
+      /* ... rest of the styles ... */
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+      }
+
+      /* Additional responsiveness */
+      @media (max-width: 768px) {
+        .main-content {
+          flex-direction: column;
+        }
+
+        .login-container,
+        .heart-image {
+          flex-basis: 100%;
+        }
+
+        .heart-image {
+          order: -1;
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <a href="https://www.enim.ac.ma/" class="logo-link" target="_blank">
+        <img src="../static/img/ninim.png" alt="Logo" class="logo" />
+      </a>
+      <!-- Other elements like navigation or a home link could go here -->
+    </div>
+
+    <div class="main-content">
+      <div class="registration-container">
+        <h1>Inscrivez-vous</h1>
+
+        <form
+          class="registration-form"
+          th:action="@{/process_register}"
+          method="post"
+          th:object="${user}"
+        >
+          <div class="input-group">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Adresse Email"
+              th:field="*{email}"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              placeholder="Prénom"
+              th:field="*{firstName}"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              id="last-name"
+              name="last-name"
+              placeholder="Nom"
+              th:field="*{lastName}"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Mot de passe"
+              th:field="*{password}"
+              required
+            />
+          </div>
+
+          <!-- ... existing code ... -->
+
+          <div class="input-group">
+            <input
+              type="text"
+              id="blood-type"
+              name="blood-type"
+              placeholder="Groupe Sanguin"
+              th:field="*{blood}"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              id="CIN"
+              name="CIN"
+              placeholder="Carte Nationale"
+              th:field="*{cin}"
+              required
+            />
+          </div>
+
+          <!-- ... existing code ... -->
+
+          <button type="submit" th:href="@{/login}">S'inscrire</button>
+        </form>
+
+        <p>
+          Vous avez déjà un compte?
+          <a href="{{ url_for('login') }}" class="login-link">Connectez-vous</a>
+        </p>
+      </div>
+
+      <div class="heart-image">
+        <!-- The heart image placeholder remains the same as in the login page -->
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2024 made by kingadilus</p>
+    </div>
+  </body>
+</html>

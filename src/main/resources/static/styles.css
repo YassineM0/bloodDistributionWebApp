@@ -1,0 +1,120 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+}
+
+.header {
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    text-align: right;
+    border-bottom: 3px solid #e0e0e0;
+}
+
+.home-link {
+    text-decoration: none;
+    font-size: larger;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-top: 50px; /* Or adjust this value to position the login form correctly */
+}
+
+.login-container {
+    flex-basis: 50%;
+    width: 350px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.login-container h1 {
+    color: #d00;
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    margin-bottom: 20px;
+}
+
+.register-link {
+    color: #d00;
+    text-decoration: none;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #d00;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #b30000;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background: #fff;
+    border-top: 3px solid #e0e0e0;
+}
+
+.heart-image {
+    flex-basis: 50%; /* Adjust this value to change the width of the heart image placeholder */
+    height: 200px; /* Set a fixed height or as needed */
+    background: url('./img/demm.jpg') no-repeat center center;
+    background-size: contain;
+}
+
+/* Additional responsiveness */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .login-container,
+    .heart-image {
+        flex-basis: 100%;
+    }
+
+    .heart-image {
+        order: -1; /* This will place the heart image above the login container on small screens */
+        height: 150px; /* Adjust height for small screens */
+    }
+}

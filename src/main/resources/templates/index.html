@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spring Bootstrap App</title>
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap/4.6.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Welcome to Spring Bootstrap App</h1>
+      <p>This is a simple example using Spring Boot and Bootstrap.</p>
+      <a class="btn btn-primary" th:href="@{/list_users}">list all users</a>
+      <a class="btn btn-primary" th:href="@{/register}">Register</a>
+      <a class="btn btn-primary" th:href="@{/login}">login</a>
+    </div>
+  </body>
+</html>
